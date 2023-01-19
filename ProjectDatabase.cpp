@@ -45,7 +45,11 @@ struct newEmployers
     int year_income;
     int age;
 } newEmploy[6]={{"SACV750524", "Veronica", "Sanchez", 6000, "A1", 2004, 34},
-                {"ROPJ081001", "Jose", "Rojas", 10000, "A2", 2003, 22},};
+                {"ROPJ081001", "Jose", "Rojas", 10000, "A2", 2003, 22},
+                {"REFFDAWFDW", "Omar", "Ramirez", 7000, "A3", 2005,27},
+                {"LKSAMDALSD", "Selena ","Martinez", 9500, "A4", 2006, 25},
+                {"SADCKLDSCN", "Luis", "Lopez", 8000, "A5", 2007, 30},
+                {"PODPASODAS", "Juan", "Perez", 9000, "A1", 2005, 27}};
 
 void selection()
 {
@@ -173,11 +177,38 @@ void productoCruz()
         {
             cout<<j.rfc<<" | "<<j.name<<" "<<j.last_name<<" | "<<j.salary<<" | "<<j.dpt<<" | "<<j.year_income<<" | "<<j.age<<" | "<<i.idDep<<" | "<<i.name<<" | "<<i.areaEdificio<<endl;
         }
+    }    
+}
+
+void interseccion(){
+    start:
+    ::system("clear");
+    cout<<"Interseccion de las siguientes tablas: \n"<<endl;
+    cout<<"Empleados \n"<<endl;
+    cout<<left<<setw(13)<<"RFC"<<left<<setw(11)<<"Name"<<left<<setw(11)<<"Last_Name"<<left<<setw(8)<<"Salary"<<left<<setw(5)<<"DPT"<<left<<setw(14)<<"Año de inicio"<<left<<setw(3)<<"Edad"<<endl;
+    for (auto & i : employ)
+    {
+        cout<<left<<setw(13)<<i.rfc<<left<<setw(11)<<i.name<<left<<setw(11)<<i.last_name<<left<<setw(8)<<i.salary<<left<<setw(5)<<i.dpt<<left<<setw(14)<<i.year_income<<left<<setw(3)<<i.age<<endl;
+    }
+    cout<<"Nuevos Empleados \n"<<endl;
+    cout<<left<<setw(13)<<"RFC"<<left<<setw(11)<<"Name"<<left<<setw(11)<<"Last_Name"<<left<<setw(8)<<"Salary"<<left<<setw(5)<<"DPT"<<left<<setw(14)<<"Año de inicio"<<left<<setw(3)<<"Edad"<<endl;
+    for(auto & i: newEmploy)
+    {
+        cout<<left<<setw(13)<<i.rfc<<left<<setw(11)<<i.name<<left<<setw(11)<<i.last_name<<left<<setw(8)<<i.salary<<left<<setw(5)<<i.dpt<<left<<setw(14)<<i.year_income<<left<<setw(3)<<i.age<<endl;
+    }
+    cout<<"Interseccion \n"<<endl;
+    cout<<left<<setw(13)<<"RFC"<<left<<setw(11)<<"Name"<<left<<setw(11)<<"Last_Name"<<left<<setw(8)<<"Salary"<<left<<setw(5)<<"DPT"<<left<<setw(14)<<"Año de inicio"<<left<<setw(3)<<"Edad"<<endl;
+    for(auto & i : newEmploy)
+    {
+        for(auto & j : employ)
+        {
+            if(i.rfc == j.rfc)
+            {
+                cout<<left<<setw(13)<<i.rfc<<left<<setw(11)<<i.name<<left<<setw(11)<<i.last_name<<left<<setw(8)<<i.salary<<left<<setw(5)<<i.dpt<<left<<setw(14)<<i.year_income<<left<<setw(3)<<i.age<<endl;
+            }
+        }
     }
 
-    
-    
-    
 }
 
 void menu()
@@ -208,6 +239,7 @@ void menu()
             case 4:;
             case 5:;
             case 6:;
+                interseccion(); break;
             case 7:;
             case 8:
                 option = 8;
