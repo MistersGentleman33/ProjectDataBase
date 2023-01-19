@@ -52,6 +52,63 @@ struct newEmployers
                {"SADCKLDSCN", "Luis", "Lopez", 8000, "A5", 2007, 30},
                {"PODPASODAS", "Juan", "Perez", 9000, "A1", 2005, 27}};
 
+void diferencia()
+{
+        system("clear");
+        vector<vector<int>> table1 = {{1, 23}, {3, 123}, {5, 343}};
+        vector<vector<int>> table2 = {{2, 12132}, {3, 34333}, {5, 54545}};
+        map<int, vector<int>> map1;
+        vector<vector<int>> result;
+
+    cout<<"FABRICA\n";
+    cout<<"ID  "<<" Empleados"<<endl;
+
+    for (int i = 0; i < table1.size(); i++)
+    {
+        for (int j = 0; j < table1[i].size(); j++)
+            cout << table1[i][j] << " \t  ";
+        cout << endl;
+    }cout<<"-----------------------\n";
+
+    cout<<"PRODUCCION"<<endl;
+    cout<<"IDFabrica  "<<" Cantidad"<<endl;
+
+    for (int i = 0; i < table2.size(); i++)
+    {
+        for (int j = 0; j < table2[i].size(); j++)
+            cout << table2[i][j] << " \t  ";
+        cout << endl;
+    }cout<<"-----------------------\n";
+
+        // Almacenar las filas de la primera tabla en un mapa
+        for (int i = 0; i < table1.size(); i++)
+            map1[table1[i][0]] = table1[i];
+
+        // Recorrer las filas de la segunda tabla
+        for (int i = 0; i < table2.size(); i++)
+        {
+            // Buscar una fila con el mismo valor en el primer campo en el mapa
+            if (map1.find(table2[i][0]) == map1.end())
+            {
+                // Agregar la fila a la tabla resultante
+                result.push_back(table2[i]);
+            }
+        }
+
+        // Imprimir la tabla resultante
+    cout<<"IDFabrica  "<<" Cantidad"<<endl;
+        for (int i = 0; i < result.size(); i++)
+        {
+            for (int j = 0; j < result[i].size(); j++)
+                cout << result[i][j] << " \t\t\t";
+            cout << endl;
+        }
+    system( "read -n 1 -s -p \"Press any key to continue...\"" );
+
+
+}
+
+
 void interseccion(){
     start:
     ::system("clear");
@@ -293,8 +350,8 @@ void menu()
                 selection(); break;
             case 3:;
                 productoCruz(); break;
-            case 4:;
-            case 5:;
+            case 4:break;
+            case 5:diferencia();break;
             case 6:interseccion();break;
             case 7: reunion(); break;
             case 8:
