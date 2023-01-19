@@ -153,7 +153,18 @@ void productoCruz()
 {
     start:
     ::system("clear");
-    
+    cout<<"Producto Cruz de las siguientes tablas: \n"<<endl;
+    cout<<"Empleados \n"<<endl;
+    cout<<left<<setw(13)<<"RFC"<<left<<setw(11)<<"Name"<<left<<setw(11)<<"Last_Name"<<left<<setw(8)<<"Salary"<<left<<setw(5)<<"DPT"<<left<<setw(14)<<"Año de inicio"<<left<<setw(3)<<"Edad"<<endl;
+    for (auto & i : employ)
+    {
+        cout<<left<<setw(13)<<i.rfc<<left<<setw(11)<<i.name<<left<<setw(11)<<i.last_name<<left<<setw(8)<<i.salary<<left<<setw(5)<<i.dpt<<left<<setw(14)<<i.year_income<<left<<setw(3)<<i.age<<endl;
+    }
+    cout<<"\nDepartamentos \n"<<endl;
+    for(auto & i: departamento)
+    {
+        cout<<left<<setw(5)<<i.idDep<<left<<setw(11)<<i.name<<left<<setw(11)<<i.areaEdificio<<endl;
+    }
     cout<<"Producto Cartesiano \n"<<endl;
     cout<<left<<setw(13)<<"RFC"<<left<<setw(5)<<"Name"<<left<<setw(11)<<"Last_Name"<<left<<setw(8)<<"Salary"<<left<<setw(5)<<"DPT"<<left<<setw(14)<<"Year_Incame"<<left<<setw(3)<<"age"<<left<<setw(5)<<"ID"<<left<<setw(11)<<"Name"<<left<<setw(11)<<"AreaEdificio"<<endl;
     for(auto & i : departamento)
